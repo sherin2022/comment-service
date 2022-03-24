@@ -1,0 +1,20 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: "${EUREKA_URI:http://localhost:8761/eureka}"
+  instance:
+    preferIpAddress: true
+server:
+  error:
+    include-message: always
+  port: 3015
+spring:
+  application:
+    name: comment-service
+  cloud:
+    discovery:
+      enabled: true
+  data:
+    mongobd:
+      database: commentDB
+      port: 27017
