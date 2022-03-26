@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +18,8 @@ public class Comment {
     @Id
     private String commentId;
     private String comment;
-    private String commentedBy; //This the user Id;
-    private String commentedOnPost;// This is the postid
+    private String commentedBy;
+    private String commentedOnPost;
     private Date createdAt;
     private Date updatedAt;
 
