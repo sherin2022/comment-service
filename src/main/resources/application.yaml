@@ -15,6 +15,7 @@ spring:
     discovery:
       enabled: true
   data:
-    mongobd:
+    mongodb:
       database: commentDB
       port: 27017
+#      host: host.docker.internal

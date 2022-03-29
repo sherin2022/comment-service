@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.demo.constant.CommentConstant.COMMENT_DELETED;
+
 @Service
 public class CommentServiceImpl implements CommentService{
 
@@ -72,14 +74,15 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public String deleteComment(String commentId) {
-       Comment commentToBeDeleted = commentRepo.deleteByCommentId(commentId);
-          return "Deleted the comment successfully";
+       commentRepo.deleteByCommentId(commentId);
+        return COMMENT_DELETED;
     }
 
     @Override
-    public Long getCommentsCount(String postId) {
-        List comment = commentRepo.findByCommentedOnPost(postId);
-        return comment.stream().count();
+    public Integer getCommentsCount(String postId) {
+        List comments = commentRepo.findByCommentedOnPost(postId);
+        return comments.size();
+
 
     }
 
@@ -90,7 +93,11 @@ public class CommentServiceImpl implements CommentService{
          Comment requiredComment = commentRepo.findByCommentId(commentId);
          commentResponse.setCommentId(requiredComment.getCommentId());
          commentResponse.setComment(requiredComment.getComment());
-         commentResponse.setCommentedBy(userFeign.getUserDetails(requiredComment.getCommentId()));
+         commentResponse.setLikesCount(likeFeign.getLikesCount(commentId));
+         commentResponse.setCommentedOnPost(requiredComment.getCommentedOnPost());
+         commentResponse.setCreatedAt(requiredComment.getCreatedAt());
+         commentResponse.setUpdatedAt(new Date());
+         commentResponse.setCommentedBy(userFeign.getUserDetails(requiredComment.getCommentedBy()));
          return commentResponse;
 
 

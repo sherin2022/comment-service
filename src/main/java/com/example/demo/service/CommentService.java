@@ -14,6 +14,6 @@ public interface CommentService {
     public CommentResponse createComment(String postId,CommentRequest commentRequest);
     public CommentResponse updateComment(String commentId, CommentRequest commentRequest);
     public String deleteComment(String commentId);
-    public Long getCommentsCount(String postId);
+    public Integer getCommentsCount(String postId);
     CommentResponse getCommentDetails(String postId,String commentId);
 }

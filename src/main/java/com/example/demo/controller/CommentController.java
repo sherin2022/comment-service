@@ -37,8 +37,8 @@ public class CommentController{
         return new ResponseEntity<>(commentService.createComment(postId,commentRequest), HttpStatus.CREATED);
     }
 
-    @GetMapping("{postId}/comments/count/{commentId}")
-    public ResponseEntity<Long> getCommentsCount(@PathVariable("postId") String postId){
+    @GetMapping("{postId}/comments/count")
+    public ResponseEntity<Integer> getCommentsCount(@PathVariable("postId") String postId){
         return new ResponseEntity<>(commentService.getCommentsCount(postId), HttpStatus.OK);
     }
 
@@ -47,7 +47,7 @@ public class CommentController{
         return commentService.updateComment(commentId,commentRequest);
     }
 
-    @DeleteMapping("{postId}/comments/count/{commentId}")
+    @DeleteMapping("{postId}/comments/{commentId}")
     public ResponseEntity<String> deleteComment(@PathVariable("commentId") String commentId){
         return new ResponseEntity<String>(commentService.deleteComment(commentId), HttpStatus.OK);
     }
