@@ -3,6 +3,7 @@ package com.example.demo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
@@ -11,7 +12,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class CommentResponse {
 
-    private String commentId;
+
+    private String id;
     private String comment;
     private UserDto commentedBy;
     private String commentedOnPost;

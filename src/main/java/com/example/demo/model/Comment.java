@@ -16,11 +16,12 @@ import java.util.Date;
 public class Comment {
 
     @Id
-    private String commentId;
+    private String id;
     private String comment;
     private String commentedBy;
     private String commentedOnPost;
     private Date createdAt;
     private Date updatedAt;
+
 
 }
