@@ -95,7 +95,7 @@ public class CommentServiceImpl implements CommentService {
             }
             comment.setComment(commentRequest.getComment());
             comment.setUpdatedAt(new Date());
-            comment.setComment(commentRequest.getId());
+            comment.setId(commentRequest.getId());
             comment.setCommentedBy(commentRequest.getCommentedBy());
             commentRepo.save(comment);
             return new CommentResponse(comment.getId(),comment.getComment(),userFeign.getUserDetails(comment.getCommentedBy()),

@@ -85,16 +85,16 @@ public class CommentControllerTest {
                 .andExpect(status().isCreated());
     }
 
-//    @Test
-//    void testGetCommentsById() throws Exception {
-//        CommentResponse commentResponse = createOneComment();
-//        when(commentService.getCommentDetails("1","2")).thenReturn(commentResponse);
-//        mockMvc.perform(get("/posts/1/comments/2"))
-//                .andDo(print())
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$", Matchers.aMapWithSize(7)))
-//                .andExpect(jsonPath("$.comment", Matchers.is("CommentTest")));
-//    }
+    @Test
+    void testGetCommentsById() throws Exception {
+        CommentResponse commentResponse = createOneComment();
+        when(commentService.getCommentDetails("1","2")).thenReturn(commentResponse);
+        mockMvc.perform(get("/posts/1/comments/2"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", Matchers.aMapWithSize(7)))
+                .andExpect(jsonPath("$.comment", Matchers.is("CommentTest")));
+    }
 
     @Test
     void testGetCommentsCountById() throws Exception {
