@@ -1,17 +1,24 @@
 package com.example.demo.dto;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
-import java.time.LocalDate;
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentDto {
+public class CommentResponse {
+
+
     private String id;
     private String comment;
     private UserDto commentedBy;
-    private int likesCount;
-    private LocalDate createdAt;
-    private LocalDate updatedAt;
+    private String commentedOnPost;
+    private Integer likesCount;
+    private Date createdAt;
+    private Date updatedAt;
+
 }

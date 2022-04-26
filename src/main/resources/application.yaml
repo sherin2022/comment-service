@@ -1,0 +1,24 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: "${EUREKA_URI:http://localhost:8761/eureka}"
+  instance:
+    preferIpAddress: true
+server:
+  error:
+    include-message: always
+  port: 3015
+spring:
+  application:
+    name: comment-service
+  cloud:
+    discovery:
+      enabled: true
+  data:
+    mongodb:
+      database: commentDB
+      port: 27017
+#      host: host.docker.internal
+logging:
+  file:
+    name: C:/Users/savitago/Downloads/comment-service/src/logs/comment_service.log

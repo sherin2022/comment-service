@@ -6,8 +6,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableEurekaClient
-@EnableFeignClients
 @SpringBootApplication
+@EnableFeignClients
 public class CommentServiceApplication {
 
 	public static void main(String[] args) {

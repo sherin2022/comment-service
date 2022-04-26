@@ -3,15 +3,17 @@ package com.example.demo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
-import javax.validation.constraints.NotEmpty;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class CommentRequest {
+
+
+    @Id
     private String id;
-    @NotEmpty(message = "Comment should not be empty")
     private String comment;
     private String commentedBy;
 
